@@ -27,17 +27,20 @@ let bubbles: [Element] = {
 struct ContentView: View {
     let elements = bubbles
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack {
-                ForEach(elements) { element in
-                    Text(element.value)
-                        .padding(5)
-                        .background(Color.yellow)
-                        .cornerRadius(5)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack() {
+                    ForEach(elements) { element in
+                        Text(element.value)
+                            .padding(5)
+                            .background(Color.yellow)
+                            .cornerRadius(5)
+                            .scaleEffect(x: -1, y: 1)
+                    }
                 }
+                .background(Color.green)
             }
-        }
-        .environment(\.layoutDirection, .rightToLeft)
+            .background(Color.blue)
+            .scaleEffect(x: -1, y: 1)
     }
 }
 
